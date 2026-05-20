@@ -1,0 +1,10 @@
+flask
+python-dotenv
+email-validator
+flask-debugtoolbar
+flask-mail
+flask-login
+flask-migrate
+flask-sqlalchemy
+flask-wtf
+

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>画像アップロード</h1>
+<form method="POST" enctype="multipart/form-data">
+    {{ form.csrf_token() }}
+    {{ form.file.label }} {{ form.file() }}
+    {% if form.file.errors %}
+        <ul>
+        {% for error in form.file.errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {{ form.submit() }}
+</form>
+{% endblock %}

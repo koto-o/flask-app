@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{{ url_for('uploader.upload') }}">画像をアップロード</a> / <a href="{{ url_for('index') }}">トップ</a>
+<h1>アップロード画像一覧</h1>
+{% for image in images %}
+    <div>
+        <a href="{{ url_for('uploader.view_image', image_id=image.id) }}">
+            <img src="{{ url_for('uploader.uploaded_file', filename=image.filepath.split('/')[-1]) }}" alt="{{ image.filename }}" width="200">
+        </a>
+        <p>{{ image.filename }} ({{ image.upload_date }})</p>
+    </div>
+{% endfor %}
+{% endblock %}

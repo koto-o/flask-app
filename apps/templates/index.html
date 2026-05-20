@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Name</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+    <h1>Top Page</h1>
+    {% if current_user.is_authenticated %}
+    <p>Hello, {{ current_user.username }}!</p>
+    <a href="{{ url_for('auth.logout') }}">Logout</a>
+
+    <a href="{{ url_for('uploader.upload') }}">画像アップロード</a>
+    <a href="{{ url_for('uploader.list_images') }}">画像一覧</a>
+    {% else %}
+    <a href="{{ url_for('auth.login') }}">Login</a>
+    <a href="{{ url_for('auth.register') }}">Register</a>
+    {% endif %}
+</body>
+
+</html>
